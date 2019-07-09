@@ -45,6 +45,8 @@ const renderGifs = (gifs) => {
 
 const createGif = (gifObj) => {
     const img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+    // debugger here to make sure we grab the right information, iterate through the object
+    // potentially use a DataCleaner class to clean up the response
     img.attr('src', gifObj.images.fixed_height_small.url);
     img.addClass('gif-card');
     return img;
