@@ -1,5 +1,5 @@
 // GIPHY API info
-const apiKey = '';
+const apiKey = 'xq9C2XF2YHqoTYLFol1BCb5hTUdmEHjR';
 const searchEndpoint = 'api.giphy.com/v1/gifs/search';
 
 // Page Elements
