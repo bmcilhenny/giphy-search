@@ -5,8 +5,7 @@ const searchEndpoint = 'api.giphy.com/v1/gifs/search';
 // Page Elements
 const $input = $('#searchTerm');
 const $submit = $('#button');
-const $container = $('.container');
-const $gifDivs = [$("#gif1"), $("#gif2"), $("#gif3"), $("#gif4"), $("#gif5"), $("#gif6"), $("#gif7"), $("#gif8"), $("#gif9"), $("#gif10")];
+const $gifContainer = $('#gif-cards');
 
 // grab gif objects from GIPHY search endpoint
 const getSearch = async () => {
@@ -31,8 +30,14 @@ const renderGifs = (gifs) => {
     $gifDivs.forEach(gifDiv, index => {
         console.log("Current gif:", gifs[index]);
         let gifCard = createGif(gifs[index]);
-        $gifDiv.append(gifCard);
+        $gifContainer.append(gifCard);
     })
+}
+
+const createGif = (gifObj) => {
+    const img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+    img.attr('src', gifObj.images.url);
+    img.addClass('gif-card');
 }
 
 const executeSearch = () => {
