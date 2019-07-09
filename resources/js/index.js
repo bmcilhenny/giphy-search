@@ -1,3 +1,7 @@
+// issues to debug
+// console.log in beginning to make sure event listeners/handlers are firing
+// i originally get a cors error, that's because I forgot to use http:// at beginning of fetch url
+// then i get another 401 unauthorized error, so then i think something must still be wrong with my url because my api key is definitely correct. then i notice i am missing a "?" at the end of my url so I add one
 
 
 // GIPHY API info
@@ -29,7 +33,9 @@ const getSearch = async () => {
 };
 
 const renderGifs = (gifs) => {
+    $gifContainer.text('');
     gifs.data.forEach(gif => {
+        // $gifContainer.text('')
         console.log("Current gif:", gif);
         const gifCard = createGif(gif);
         debugger;
