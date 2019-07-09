@@ -1,6 +1,8 @@
+
+
 // GIPHY API info
-const apiKey = 'xq9C2XF2YHqoTYLFol1BCb5hTUdmEHjR';
-const searchEndpoint = 'api.giphy.com/v1/gifs/search';
+const apiKey = '';
+const searchEndpoint = 'http://api.giphy.com/v1/gifs/search?';
 
 // Page Elements
 const $input = $('#searchTerm');
@@ -12,8 +14,8 @@ const getSearch = async () => {
   const searchTerm = $input.val();
   const urlToFetch = `${searchEndpoint}&api_key=${apiKey}&q=${searchTerm}`;
   try {
-    const response = await fetch(urlToFetch);
-    debugger;
+      const response = await fetch(urlToFetch, {mode: 'cors'});
+      
       if (response.ok) {
       const jsonResponse = await response.json();
       const giphyArray = jsonResponse;
@@ -27,17 +29,19 @@ const getSearch = async () => {
 };
 
 const renderGifs = (gifs) => {
-    $gifDivs.forEach(gifDiv, index => {
-        console.log("Current gif:", gifs[index]);
-        let gifCard = createGif(gifs[index]);
+    gifs.data.forEach(gif => {
+        console.log("Current gif:", gif);
+        const gifCard = createGif(gif);
+        debugger;
         $gifContainer.append(gifCard);
     })
 }
 
 const createGif = (gifObj) => {
     const img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
-    img.attr('src', gifObj.images.url);
+    img.attr('src', gifObj.images.fixed_height_small.url);
     img.addClass('gif-card');
+    return img;
 }
 
 const executeSearch = () => {
