@@ -3,6 +3,12 @@
 // i originally get a cors error, that's because I forgot to use http:// at beginning of fetch url
 // then i get another 401 unauthorized error, so then i think something must still be wrong with my url because my api key is definitely correct. then i notice i am missing a "?" at the end of my url so I add one
 
+    // I want to create a text input that should listen for key up events. 
+// Grab the text input on key up
+// Take the input and include it in my HTTP request to Giphy API
+// Fire off the request then take that response and parse through the data I want, the actual gifs. I guess they’ll be urls
+// I am then going to create DOM image elements and give them src attributes of the gif urls and append those image elements to the DOM.
+
 
 // GIPHY API info
 const apiKey = '';
@@ -33,6 +39,7 @@ const getSearch = async () => {
 };
 
 const renderGifs = (gifs) => {
+    // potentially add a data attribute as a way to keep track of which gifs have already been appended, and if they have to keep them there and delete the old ones and add the new ones.... maybe. might be overkill
     $gifContainer.text('');
     gifs.data.forEach(gif => {
         // $gifContainer.text('')
