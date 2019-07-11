@@ -1,5 +1,5 @@
 // GIPHY API info
-const apiKey = 'rOM85D7UVCzECHsDrCv40v2ZTP4YMxDJ';
+const apiKey = '';
 const searchEndpoint = 'http://api.giphy.com/v1/gifs/search?';
 
 // Page Elements
@@ -27,7 +27,7 @@ const renderGifs = (jsonResponse) => {
     // potentially add a data attribute as a way to keep track of which gifs have already been appended, and if they have to keep them there and delete the old ones and add the new ones.... maybe. might be overkill
     jsonResponse.data.forEach((gif, i) => {
         // console.log("Current gif:", gif);
-        const gifCard = createGif(gif, 'fixed_height_small', i);
+        createGif(gif, 'fixed_height_small', i);
         // add watch here to see what's being returned when we call that function ^^ 
         // gifContainer.appendChild(gifCard);
     })
@@ -45,8 +45,6 @@ const createGif = (gifObj, imageName, i) => {
         placeholderDiv.classList.remove("placeholder");
         placeholderDiv.className += "tiny image";
         placeholderDiv.appendChild(img);
-    // img.addClass('gif-card');
-    // return img;
     });
 }
 
