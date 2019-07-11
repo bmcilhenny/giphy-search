@@ -35,6 +35,7 @@ const renderGifs = (jsonResponse) => {
 
 const createGif = (gifObj, imageName, i) => {
     const img = document.createElement('img');
+    img.id = `image-${i}`
     img.style.display = 'none';
     img.src = gifObj.images[imageName].url;
     img.addEventListener('load', () => {
@@ -44,9 +45,13 @@ const createGif = (gifObj, imageName, i) => {
         placeholderDiv.classList.remove("placeholder");
         placeholderDiv.className += "tiny image";
         placeholderDiv.appendChild(img);
-    });
+        $(`#image-${i}`).transition({
+            animation : 'jiggle',
+            duration  : 800
+         });
     // img.addClass('gif-card');
     // return img;
+    });
 }
 
 const addPlaceholder = (i) => {
@@ -76,4 +81,9 @@ const executeSearch = () => {
     }
 }
 
-input.addEventListener( 'keyup', executeSearch);
+
+document.addEventListener("DOMContentLoaded", function(){
+    $('h1').transition('tada');
+    input.addEventListener( 'keyup', executeSearch);
+});
+
