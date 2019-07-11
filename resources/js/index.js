@@ -1,5 +1,5 @@
 // GIPHY API info
-const apiKey = '';
+const apiKey = 'rOM85D7UVCzECHsDrCv40v2ZTP4YMxDJ';
 const searchEndpoint = 'http://api.giphy.com/v1/gifs/search?';
 
 // Page Elements
@@ -45,10 +45,6 @@ const createGif = (gifObj, imageName, i) => {
         placeholderDiv.classList.remove("placeholder");
         placeholderDiv.className += "tiny image";
         placeholderDiv.appendChild(img);
-        $(`#image-${i}`).transition({
-            animation : 'jiggle',
-            duration  : 800
-         });
     // img.addClass('gif-card');
     // return img;
     });
